@@ -2,6 +2,8 @@
   "name": "dsn2rdd",
   "version": "0.1.0",
   "private": true,
+  "author": "Nicolas DENIS",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,12 +11,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fibre44/dsn-parser": "^0.7.6",
     "@next/font": "13.1.6",
     "@types/node": "18.13.0",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
+    "bootstrap": "^5.2.3",
     "eslint": "8.34.0",
     "eslint-config-next": "13.1.6",
+    "exceljs": "^4.3.0",
+    "formidable": "^2.1.1",
     "next": "13.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
