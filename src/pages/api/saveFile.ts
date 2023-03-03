@@ -7,7 +7,7 @@ import { dsnParser } from '@/tools/dsnParser'
 import path from 'path'
 import { readdir } from 'node:fs/promises';
 import { peopleNetIndividu } from '@/tools/peopleNet'
-
+import { dsnExtraction } from '@/tools/dsnExtraction'
 type Data = {
     url?: {
         uuid: string,
@@ -47,11 +47,18 @@ export default async function handler(
 
         }
         const fileNameList: string[] = []
+        console.log(exportType)
+
         switch (exportType) {
             case 'peopleNet':
                 await peopleNetIndividu(patchProject, dsnList, 'CFR_RDD_TMP_INDIVIDU.xlsx')
                 fileNameList.push('CFR_RDD_TMP_INDIVIDU.xlsx')
                 break
+            case 'dsn':
+                await dsnExtraction(patchProject, dsnList, 'Extraction.xlsx')
+                fileNameList.push('Extraction.xlsx')
+                break
+
             default:
                 throw (`Le type de de logiciel n'existe pas ${exportType}`)
         }

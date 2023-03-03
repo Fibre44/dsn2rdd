@@ -1,11 +1,11 @@
-import { DsnForm } from "@/components/DsnForm";
-import 'bootstrap/dist/css/bootstrap.css'
 
-export default function Home() {
-  return (
-
-    <main className='container'>
-      <DsnForm />
-    </main>
-  )
+import { makeUUID } from "@/tools/makeUUID"
+import Link from "next/link"
+export default function Page() {
+    const uuid = makeUUID()
+    return <>
+        <Link href={`/migration/${uuid}`}>
+            <button type="submit" className="w-100 btn btn-lg btn-primary">Commencer une migration</button>
+        </Link>
+    </>
 }

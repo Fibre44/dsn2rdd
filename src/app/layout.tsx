@@ -7,7 +7,12 @@ export default function RootLayout({
   return (
     <html>
       <head />
-      <body>{children}</body>
+      <body className='text-center'>
+        <main className='form-signin w-100 m-auto'>
+          {children}
+
+        </main>
+      </body>
     </html>
   )
 }

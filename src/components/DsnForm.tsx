@@ -2,7 +2,9 @@
 import { useRef, useState } from 'react';
 import { Files } from './Files';
 import { Loader } from './Loading'
+import { useRouter } from 'next/navigation';
 export const DsnForm = () => {
+    const router = useRouter();
     const [files, setFiles] = useState(false)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
@@ -28,14 +30,13 @@ export const DsnForm = () => {
                 setResponse(() => json.url)
                 setFiles(() => true)
                 setLoading(() => false)
-
             } else {
                 setLoading(() => false)
                 setError(() => true)
             }
         }
     }
-    return (<>
+    return (<div className="container">
         <form ref={form} onSubmit={handleSubmit} encType='multipart/form-data'>
             <div className="form-group mb-4">
                 <label htmlFor="dsn">Selectionner vos fichiers DSN</label>
@@ -54,6 +55,7 @@ export const DsnForm = () => {
         </form>
         {error ? <p>Oups</p> : ''}
         {files ? <Files url={response} /> : ''}
-    </>
+    </div>
+
     )
 }
